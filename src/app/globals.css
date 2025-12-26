@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #0D223D;
+  /* Deep Navy Blue */
+  --foreground: #ffffff;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-courier), monospace;
+}
+
+@layer utilities {
+  .text-crtz-yellow {
+    color: #ffffff;
+    /* User requested all yellow to be white */
+  }
+
+  .bg-crtz-yellow {
+    background-color: #ffffff;
+    color: #040f26;
+    /* Text on white bg should be dark */
+  }
+
+  .border-crtz-yellow {
+    border-color: #ffffff;
+  }
+}
