@@ -20,10 +20,10 @@ export function ProductCard({ product }: { product: Product }) {
 
             <div className="mt-6 flex flex-col gap-1">
                 <h3 className="text-xs font-bold uppercase tracking-widest text-crtz-yellow group-hover:text-white">
-                    {product.title}
+                    -
                 </h3>
                 <p className="text-xs font-bold text-crtz-yellow">
-                    THB {product.base_price.toLocaleString()}
+                    -
                 </p>
             </div>
         </Link>

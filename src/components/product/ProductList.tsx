@@ -19,7 +19,7 @@ export async function ProductList() {
 
     return (
         <section className="container mx-auto px-4 py-16">
-            <h2 className="mb-8 text-2xl font-black uppercase text-white">Latest Drop</h2>
+            <h2 className="mb-8 text-2xl font-black uppercase text-white">DROP SOON</h2>
             <div className="grid grid-cols-2 gap-x-4 gap-y-8 md:grid-cols-4">
                 {products.map((product) => (
                     <ProductCard key={product.id} product={product} />
