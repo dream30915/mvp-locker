@@ -46,6 +46,26 @@ export default function LoginPage() {
         setLoading(false)
     }
 
+    const handleGoogleLogin = async () => {
+        const { error } = await supabase.auth.signInWithOAuth({
+            provider: 'google',
+            options: {
+                redirectTo: `${location.origin}/auth/callback`,
+            },
+        })
+        if (error) setMessage(error.message)
+    }
+
+    const handleFacebookLogin = async () => {
+        const { error } = await supabase.auth.signInWithOAuth({
+            provider: 'facebook',
+            options: {
+                redirectTo: `${location.origin}/auth/callback`,
+            },
+        })
+        if (error) setMessage(error.message)
+    }
+
     const handleLineLogin = async () => {
         const { error } = await supabase.auth.signInWithOAuth({
             provider: 'line' as any,
@@ -105,6 +125,22 @@ export default function LoginPage() {
                         className="mt-4 w-full bg-[#06C755] py-3 font-bold uppercase text-white hover:opacity-90 transition-opacity"
                     >
                         Login with LINE
+                    </button>
+
+                    <button
+                        type="button"
+                        onClick={handleGoogleLogin}
+                        className="mt-2 w-full bg-white py-3 font-bold uppercase text-black hover:bg-gray-200 transition-colors"
+                    >
+                        Login with Google
+                    </button>
+
+                    <button
+                        type="button"
+                        onClick={handleFacebookLogin}
+                        className="mt-2 w-full bg-[#1877F2] py-3 font-bold uppercase text-white hover:opacity-90 transition-opacity"
+                    >
+                        Login with Facebook
                     </button>
 
                     {message && <p className="mt-4 text-center text-xs text-red-500 font-bold uppercase">{message}</p>}
