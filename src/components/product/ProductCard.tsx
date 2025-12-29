@@ -23,7 +23,7 @@ export function ProductCard({ product }: { product: Product }) {
                     -
                 </h3>
                 <p className="text-xs font-bold text-crtz-yellow">
-                    -
+                    THB -
                 </p>
             </div>
         </Link>
