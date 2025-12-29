@@ -24,9 +24,7 @@ export function Hero() {
                     className="relative z-10 h-auto w-[80vw] max-w-[600px] object-contain md:max-w-[800px]"
                 />
 
-                <p className="max-w-xl text-sm font-bold tracking-widest text-gray-400 sm:text-lg font-orbitron">
-                    No Access Without Authorization.
-                </p>
+
 
                 <Link
                     href="/products"
