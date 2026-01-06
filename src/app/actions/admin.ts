@@ -10,12 +10,12 @@ export async function verifyPaymentAction(orderId: string) {
     // 1. Check if current user is admin
     const { data: { user } } = await supabase.auth.getUser()
 
-    if (!user || !user.email) {
+    if (!user) {
         return { success: false, message: 'Unauthorized' }
     }
 
-    const adminEmails = (process.env.ADMIN_EMAILS || '').split(',').map(e => e.trim())
-    if (!adminEmails.includes(user.email)) {
+    const { checkIsAdmin } = await import('@/lib/auth-utils')
+    if (!(await checkIsAdmin(user))) {
         return { success: false, message: 'Not an admin' }
     }
 

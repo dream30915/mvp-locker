@@ -31,6 +31,10 @@ export default function LoginPage() {
     }
 
     const handleSignUp = async () => {
+        if (!email || !password) {
+            setMessage('Please enter email and password')
+            return
+        }
         setLoading(true)
         setMessage('')
         const { error } = await supabase.auth.signUp({

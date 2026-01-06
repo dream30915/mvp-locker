@@ -19,7 +19,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${courier.variable} ${orbitron.variable} font-orbitron antialiased text-white bg-background`}>
+      <body suppressHydrationWarning className={`${courier.variable} ${orbitron.variable} font-orbitron antialiased text-white bg-background`}>
         <CartProvider>
           <AppLayout>
             {children}

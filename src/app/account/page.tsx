@@ -27,6 +27,9 @@ export default async function AccountPage() {
 
     const tierColor = profile?.tier === 'vip' ? 'text-crtz-yellow' : profile?.tier === 'gold' ? 'text-yellow-500' : 'text-gray-400'
 
+    const adminEmails = (process.env.ADMIN_EMAILS || '').split(',').map(e => e.trim())
+    const isAdmin = user?.email && adminEmails.includes(user.email)
+
     return (
         <main className="min-h-screen pb-20 text-white bg-background">
             <Navbar />
@@ -56,6 +59,12 @@ export default async function AccountPage() {
                                 Sign Out
                             </button>
                         </form>
+
+                        {isAdmin && (
+                            <Link href="/admin" className="mt-4 block w-full bg-white py-3 text-center text-sm font-black uppercase text-black hover:bg-gray-200">
+                                Go to Admin Panel
+                            </Link>
+                        )}
                     </div>
 
                     {/* ORDERS */}

@@ -77,10 +77,10 @@ export default function CheckoutPage() {
                         <div className="flex flex-col gap-2">
                             <label className="font-bold uppercase text-gray-400">Payment Method</label>
                             <div className="flex gap-4">
-                                <label className="flex flex-1 cursor-pointer items-center justify-center gap-2 border border-crtz-grey bg-gray-900 py-4 hover:border-white">
-                                    <input type="radio" name="provider" value="stripe" required className="accent-crtz-yellow" />
-                                    <span className="font-bold uppercase">Card (Stripe)</span>
-                                </label>
+                                {/* <label className="flex flex-1 cursor-pointer items-center justify-center gap-2 border border-crtz-grey bg-gray-900 py-4 hover:border-white opacity-50 cursor-not-allowed">
+                                    <input type="radio" name="provider" value="stripe" disabled className="accent-crtz-yellow" />
+                                    <span className="font-bold uppercase">Card (Disabled)</span>
+                                </label> */}
                                 <label className="flex flex-1 cursor-pointer items-center justify-center gap-2 border border-crtz-grey bg-gray-900 py-4 hover:border-white">
                                     <input type="radio" name="provider" value="promptpay" required className="accent-crtz-yellow" />
                                     <span className="font-bold uppercase">PromptPay</span>

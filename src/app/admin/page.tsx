@@ -10,8 +10,8 @@ export default async function AdminDashboard() {
     const { data: { user } } = await supabase.auth.getUser()
     if (!user) redirect('/login')
 
-    const adminEmails = (process.env.ADMIN_EMAILS || '').split(',').map(e => e.trim())
-    if (!adminEmails.includes(user.email!)) {
+    const { checkIsAdmin } = await import('@/lib/auth-utils')
+    if (!(await checkIsAdmin(user))) {
         return <div className="p-20 text-center text-white bg-black min-h-screen">NO ACCESS</div>
     }
 
@@ -38,6 +38,22 @@ export default async function AdminDashboard() {
                         <p className="text-sm font-bold uppercase">Pending Verification</p>
                         <p className="text-5xl font-black">{pendingCount}</p>
                         <p className="mt-2 text-xs font-bold underline">VIEW ORDERS</p>
+                    </Link>
+
+                    <Link href="/admin/products/new" className="block p-6 border border-white bg-black text-white hover:border-crtz-yellow hover:text-crtz-yellow transition-colors">
+                        <p className="text-sm font-bold uppercase">Product Management</p>
+                        <div className="h-12 flex items-center">
+                             <span className="text-2xl font-bold">+ New Product</span>
+                        </div>
+                        <p className="mt-2 text-xs font-bold underline">ADD ITEM</p>
+                    </Link>
+
+                    <Link href="/admin/users" className="block p-6 border border-gray-600 bg-gray-900 text-gray-300 hover:border-white hover:text-white transition-colors">
+                        <p className="text-sm font-bold uppercase">User Management</p>
+                        <div className="h-12 flex items-center">
+                             <span className="text-xl font-bold">Manage Admins</span>
+                        </div>
+                        <p className="mt-2 text-xs font-bold underline">VIEW USERS</p>
                     </Link>
 
                     <div className="p-6 border border-crtz-grey bg-gray-900">
